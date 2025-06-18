@@ -118,11 +118,6 @@ violations (as in the intentionally bad class), the output will look like this:
 14.23 Audit done.
 ```
 ---
-## 🔧 Customize Rules
-
-Modify checkstyle.xml at the project root to adapt the rules to your team's coding standards.
-Full list of available checks: https://checkstyle.org/checks.html
----
 
 ## 👨‍💻 Author
 
