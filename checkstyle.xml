@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN" "https://checkstyle.org/dtds/configuration_1_3.dtd">
+<module name="Checker">
+    <!-- Enforce maximum line length of 120 characters -->
+    <module name="LineLength">
+        <property name="max" value="120" />
+    </module>
+
+    <!-- Detect 'print(ln)' and show a message to use a logger instead -->
+    <module name="RegexpSingleline">
+        <property name="format" value="print(?:ln)?" />
+        <property name="message" value="Avoid using print/println, Use a logger instead!" />
+    </module>
+
+    <!-- Only check java files -->
+    <property name="fileExtensions" value="java" />
+
+    <!-- Ensure files end with a newline -->
+    <module name="NewlineAtEndOfFile" />
+
+    <!-- Disallow tab characters in the code -->
+    <module name="FileTabCharacter" />
+
+    <module name="TreeWalker">
+        <!-- Naming Conventions -->
+        <!-- Example: Class names should be in PascalCase -->
+        <!-- public class MyClass { ... } -->
+        <module name="TypeName" />
+
+        <!-- Example: Method names should be in camelCase -->
+        <!-- public void myMethod() { ... } -->
+        <module name="MethodName" />
+
+        <!-- Example: Local variable names should be in camelCase -->
+        <!-- int myVariable = 0; -->
+        <module name="LocalVariableName" />
+
+        <!-- Example: Member variable names should be in camelCase -->
+        <!-- private int myMemberVariable; -->
+        <module name="MemberName" />
+
+        <!-- Example: Parameter names should be in camelCase -->
+        <!-- public void myMethod(int myParameter) { ... } -->
+        <module name="ParameterName" />
+
+
+        <!-- Avoid using wildcard imports -->
+        <module name="AvoidStarImport" />
+
+        <!-- Detect and remove unused imports -->
+        <module name="UnusedImports" />
+
+        <!-- Enforce whitespace around certain tokens -->
+        <module name="WhitespaceAround">
+            <property name="tokens"
+                value="ASSIGN, DIV_ASSIGN, PLUS_ASSIGN, MINUS_ASSIGN, STAR_ASSIGN,
+                       MOD_ASSIGN, SR_ASSIGN, BSR_ASSIGN, SL_ASSIGN, BXOR_ASSIGN,
+                       BOR_ASSIGN, BAND_ASSIGN, LCURLY, RCURLY" />
+        </module>
+
+        <!-- Ensure empty lines between class, interface, method, and constructor definitions -->
+        <module name="EmptyLineSeparator">
+            <property name="tokens" value="CLASS_DEF, INTERFACE_DEF, METHOD_DEF, CTOR_DEF" />
+        </module>
+
+        <!-- Enforce indentation of 4 spaces -->
+        <module name="Indentation">
+            <property name="basicOffset" value="4" />
+            <property name="lineWrappingIndentation" value="8" />
+        </module>
+
+        <!-- Detect Code Smells -->
+        <!-- Detect empty code blocks -->
+        <module name="EmptyBlock" />
+
+        <!-- Allow certain magic numbers in the code -->
+        <module name="MagicNumber">
+            <property name="ignoreNumbers" value="-1, 0, 1" />
+        </module>
+
+        <!-- Limit the number of parameters in methods to 5 -->
+        <module name="ParameterNumber">
+            <property name="max" value="5" />
+        </module>
+
+        <!-- Limit the length of methods to 20 lines -->
+        <module name="MethodLength">
+            <property name="max" value="20" />
+        </module>
+
+        <!-- Best Practices -->
+        <!-- Enforce the use of braces for if, else, for, while, and do statements -->
+        <module name="NeedBraces" />
+
+        <!-- Detect and remove unused imports -->
+        <module name="UnusedImports" />
+
+        <!-- Additional Checks -->
+        <!-- Limit the number of classes a single class can depend on to 20 -->
+        <module name="ClassFanOutComplexity">
+            <property name="max" value="20" />
+        </module>
+
+        <!-- Limit the cyclomatic complexity of methods to 10 -->
+        <module name="CyclomaticComplexity">
+            <property name="max" value="10" />
+        </module>
+
+        <!-- Ensure method parameters are declared as final -->
+        <module name="FinalParameters" />
+    </module>
+</module>
