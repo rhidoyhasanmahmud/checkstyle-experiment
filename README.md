@@ -1,8 +1,11 @@
-# Checkstyle Experiment
+# 🧪 Checkstyle Experiment with Spring Boot
 
-A Spring Boot project to experiment with [Checkstyle](https://checkstyle.org/) integration and enforce Java coding
-standards automatically during the build process. This setup helps developers maintain clean, consistent, and readable
-code by catching formatting and style violations early.
+[![Build with Maven](https://img.shields.io/badge/build-Maven-blue.svg)](https://maven.apache.org/)
+[![Code Style: Checkstyle](https://img.shields.io/badge/code%20style-checkstyle-brightgreen.svg)](https://checkstyle.org/)
+[![Java](https://img.shields.io/badge/java-21-blue.svg)](https://openjdk.org/projects/jdk/21/)
+
+A Spring Boot project to experiment with [Checkstyle](https://checkstyle.org/) and enforce Java coding standards automatically.  
+The project demonstrates how to break — and enforce — Java style rules using a strict custom configuration during Maven builds or Docker builds.
 
 ---
 
@@ -28,7 +31,7 @@ code by catching formatting and style violations early.
 ├── pom.xml                                    # Maven build config with plugin
 └── Dockerfile                                 # Docker build that runs Checkstyle
 ```
-
+---
 ## 🔨 Build with Checkstyle
 
 ```bash
@@ -37,6 +40,63 @@ docker build -t checkstyle-experiment .
 
 * ✅ If all rules pass, it builds the JAR.
 * ❌ If any style violation is found, the build will fail and show details.
+---
+## 📏 Checkstyle Rules
+
+> General Rules
+
+| Rule               | Description                                                                 |
+|--------------------|-----------------------------------------------------------------------------|
+| `LineLength`       | Maximum line length is **120 characters**.                                  |
+| `NewlineAtEndOfFile` | Ensures every file ends with a **newline**.                                 |
+| `FileTabCharacter` | Disallows the use of **tab characters**. Only spaces are allowed.           |
+| `RegexpSingleline` | Detects usage of `print` or `println` and prompts to use a **logger instead**. |
+
+> Naming Conventions
+
+| Rule                | Description                                                                 |
+|---------------------|-----------------------------------------------------------------------------|
+| `TypeName`          | Class names must follow **PascalCase** (`MyClass`).                         |
+| `MethodName`        | Method names must follow **camelCase** (`myMethod`).                        |
+| `LocalVariableName` | Local variable names must be in **camelCase**.                              |
+| `MemberName`        | Member variable names must be in **camelCase**.                             |
+| `ParameterName`     | Method parameters must be in **camelCase**.                                 |
+
+
+> Import Rules
+
+| Rule              | Description                                                                 |
+|-------------------|-----------------------------------------------------------------------------|
+| `AvoidStarImport` | Disallows `import java.util.*`. Use explicit imports.                       |
+| `UnusedImports`   | Detects and removes unused imports.                                         |
+
+> Code Formatting & Structure
+
+| Rule                 | Description                                                                 |
+|----------------------|-----------------------------------------------------------------------------|
+| `WhitespaceAround`   | Enforces proper spacing around operators and braces.                        |
+| `EmptyLineSeparator` | Ensures blank lines between class, method, and constructor declarations.    |
+| `Indentation`        | Enforces **4-space** indentation.                                           |
+
+> Best Practices
+
+| Rule              | Description                                                                 |
+|-------------------|-----------------------------------------------------------------------------|
+| `NeedBraces`      | Enforces braces `{}` for `if`, `else`, `for`, `while`, and `do` blocks.     |
+| `EmptyBlock`      | Disallows empty code blocks `{ }`.                                          |
+| `FinalParameters` | Method parameters must be declared as `final`.                              |
+
+> Complexity & Maintainability
+
+| Rule                    | Description                                                                 |
+|-------------------------|-----------------------------------------------------------------------------|
+| `ParameterNumber`       | Maximum **5 parameters** per method.                                       |
+| `MethodLength`          | Maximum **20 lines** per method.                                           |
+| `ClassFanOutComplexity` | A class may depend on **up to 20 other classes**.                          |
+| `CyclomaticComplexity`  | Limit cyclomatic complexity to **10 per method**.                          |
+| `MagicNumber`           | Disallows "magic numbers" (except `-1`, `0`, `1`). Use constants instead.  |
+
+---
 
 ## 📦 Sample Checkstyle Output
 
@@ -57,4 +117,14 @@ violations (as in the intentionally bad class), the output will look like this:
 14.23 [ERROR] /app/src/main/java/com/codemechanix/checkstyle_experiment/CheckstyleExperimentApplication.java:9:33: Parameter args should be final. [FinalParameters]
 14.23 Audit done.
 ```
+---
+## 🔧 Customize Rules
 
+Modify checkstyle.xml at the project root to adapt the rules to your team's coding standards.
+Full list of available checks: https://checkstyle.org/checks.html
+---
+
+## 👨‍💻 Author
+
+**Hasan Mahmud Rhidoy**  
+**Crafting Cutting-Edge Solutions with Code Wizardry | Driving Innovation in Fintech Solutions**
