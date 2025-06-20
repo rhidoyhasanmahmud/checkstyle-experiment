@@ -41,6 +41,15 @@ docker build -t checkstyle-experiment .
 * ✅ If all rules pass, it builds the JAR.
 * ❌ If any style violation is found, the build will fail and show details.
 ---
+## 📦 Branches
+
+This project includes both Maven and Gradle based implementations:
+
+* 🧰 Maven Implementation – Available on the main branch
+* ⚙️ Gradle Implementation – Available on the feature/checkstyle-with-gradle branch
+
+> You can switch between these branches to explore how Checkstyle is configured and enforced in each build tool.
+---
 ## 📏 [Checkstyle Rules](https://checkstyle.org/checks.html)
 
 > General Rules
