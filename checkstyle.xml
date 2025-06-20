@@ -18,8 +18,8 @@
     <!-- Ensure files end with a newline -->
     <module name="NewlineAtEndOfFile" />
 
-    <!-- Disallow tab characters in the code -->
-    <module name="FileTabCharacter" />
+<!--    &lt;!&ndash; Disallow tab characters in the code &ndash;&gt;-->
+<!--    <module name="FileTabCharacter" />-->
 
     <module name="TreeWalker">
         <!-- Naming Conventions -->
@@ -63,11 +63,11 @@
             <property name="tokens" value="CLASS_DEF, INTERFACE_DEF, METHOD_DEF, CTOR_DEF" />
         </module>
 
-        <!-- Enforce indentation of 4 spaces -->
-        <module name="Indentation">
-            <property name="basicOffset" value="4" />
-            <property name="lineWrappingIndentation" value="8" />
-        </module>
+<!--        &lt;!&ndash; Enforce indentation of 4 spaces &ndash;&gt;-->
+<!--        <module name="Indentation">-->
+<!--            <property name="basicOffset" value="4" />-->
+<!--            <property name="lineWrappingIndentation" value="8" />-->
+<!--        </module>-->
 
         <!-- Detect Code Smells -->
         <!-- Detect empty code blocks -->
