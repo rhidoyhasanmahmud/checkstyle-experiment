@@ -1,24 +1,24 @@
 # Stage 1: Build and Checkstyle
-FROM maven:3.9.6-eclipse-temurin-21-alpine AS builder
+FROM gradle:8.7-jdk21-alpine AS builder
 WORKDIR /app
 
-# Copy the entire project
-COPY . .
+# Copy project files
+COPY --chown=gradle:gradle . .
 
-# Run Checkstyle - will fail if violations found
-RUN mvn checkstyle:check
+# Run Checkstyle - will fail if violations are found
+RUN gradle checkstyleMain checkstyleTest
 
-# If check passes, build the jar
-RUN mvn clean package -DskipTests
+# If Checkstyle passes, build the jar
+RUN gradle bootJar --no-daemon
 
 # Stage 2: Run the application
 FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
 
-# Copy built jar
-COPY --from=builder /app/target/*.jar app.jar
+# Copy the built jar
+COPY --from=builder /app/build/libs/*.jar app.jar
 
-# Run as non-root user
+# Create non-root user
 RUN addgroup -S appuser && adduser -S appuser -G appuser
 USER appuser
 
