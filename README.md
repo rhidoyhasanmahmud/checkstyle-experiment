@@ -45,8 +45,8 @@ docker build -t checkstyle-experiment .
 
 This project includes both Maven and Gradle based implementations:
 
-* 🧰 Maven Implementation – Available on the main branch
-* ⚙️ Gradle Implementation – Available on the feature/checkstyle-with-gradle branch
+- 🧰 **Maven Implementation** – Available on the [`main` branch](https://github.com/rhidoyhasanmahmud/checkstyle-experiment/tree/main)
+- ⚙️ **Gradle Implementation** – Available on the [`feature/checkstyle-with-gradle` branch](https://github.com/rhidoyhasanmahmud/checkstyle-experiment/tree/feature/checkstyle-with-gradle)
 
 > You can switch between these branches to explore how Checkstyle is configured and enforced in each build tool.
 ---
